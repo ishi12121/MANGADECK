@@ -1,0 +1,18 @@
+{
+  "name": "mangadeck",
+  "version": "1.0.0",
+  "main": "comicscrapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "pdfkit": "^0.15.0",
+    "sharp": "^0.33.5"
+  }
+}
