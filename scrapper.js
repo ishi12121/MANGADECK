@@ -123,7 +123,7 @@ class AsuraScansChapterScraper {
 
 async function main() {
   const baseUrl =
-    "https://asuracomic.net/series/the-extras-academy-survival-guide-f0d15089";
+    "https://asuracomic.net/series/omniscient-readers-viewpoint-5bb0db14";
   const scraper = new AsuraScansChapterScraper(baseUrl);
 
   const startChapter = 1;
