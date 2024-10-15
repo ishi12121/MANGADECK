@@ -25,14 +25,11 @@ class AsuraScansChapterScraper {
           Connection: "keep-alive",
           "Upgrade-Insecure-Requests": "1",
           "Cache-Control": "max-age=0",
-          s,
         },
       });
-
       const $ = cheerio.load(response.data);
 
       const title = $("title").text().trim();
-
       const images = [];
       $("div.py-8 img").each((index, element) => {
         const src = $(element).attr("src");
