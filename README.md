@@ -2,11 +2,11 @@
 
 ## Description
 
-This script is designed to scrape manga chapters from AsuraScans, a popular manga reading website. It allows users to download chapters as both JSON data and PDF files.
+This script is designed to scrape manga chapters from AsuraScans and DrakeScans, a popular manga reading website. It allows users to download chapters as both JSON data and PDF files.
 
 ## Features
 
-- Scrapes manga chapters from AsuraScans
+- Scrapes manga chapters from AsuraScans or DrakeScans
 - Saves chapter data in JSON format
 - Generates PDF files for each chapter
 - Handles image processing and conversion
@@ -41,7 +41,7 @@ npm install axios cheerio pdfkit sharp
 
 The script will generate two types of output:
 
-1. A JSON file named `mist-might-mayhem.data.json` containing all the scraped chapter data.
+1. A JSON file named `asurascans.json` or `drakescans.json` containing all the scraped chapter data.
 2. PDF files for each chapter, named `chapter_X.pdf` where X is the chapter number.
 
 ## Customization
