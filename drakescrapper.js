@@ -99,7 +99,6 @@ class DrakeScansChapterScrapper {
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
-
   async saveData() {
     await fs.writeFile(
       `DRAKESCANS.json`,
