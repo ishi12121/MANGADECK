@@ -151,9 +151,10 @@ class DrakeScansChapterScrapper {
 async function main() {
   try {
     const baseUrl =
-      process.env.BASE_URL || "https://drakecomic.org/sss-grade-saint-knight";
+      process.env.BASE_URL ||
+      "https://drakecomic.org/manga/master-this-villainous-disciple-is-not-the-holy-child";
     const startChapter = parseInt(process.env.START_CHAPTER) || 1;
-    const endChapter = parseInt(process.env.END_CHAPTER) || 2;
+    const endChapter = parseInt(process.env.END_CHAPTER) || 10;
 
     const scraper = new DrakeScansChapterScrapper(baseUrl);
 
