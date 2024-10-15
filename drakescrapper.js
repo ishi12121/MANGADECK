@@ -118,14 +118,27 @@ class DrakeScansChapterScrapper {
       for (const image of chapter.images) {
         try {
           console.log(`Processing image: ${image.url}`);
-          const response = await this.fetchWithRetry(image.url);
-          const imgBuffer = Buffer.from(response.data);
+          const response = await axios.get(image.url, {
+            responseType: "arraybuffer",
+          });
+          console.log(`Content-Type: ${response.headers["content-type"]}`);
 
-          const metadata = await sharp(imgBuffer).metadata();
-          const { width, height } = metadata;
+          let imgBuffer = Buffer.from(response.data);
+          let imgSize;
 
-          doc.addPage({ size: [width, height] });
-          doc.image(imgBuffer, 0, 0, { fit: [width, height] });
+          try {
+            imgSize = doc.openImage(imgBuffer);
+          } catch (directError) {
+            console.log(
+              `Direct add failed, trying conversion: ${directError.message}`
+            );
+
+            imgBuffer = await sharp(imgBuffer).png().toBuffer();
+            imgSize = doc.openImage(imgBuffer);
+          }
+
+          doc.addPage({ size: [imgSize.width, imgSize.height] });
+          doc.image(imgBuffer, 0, 0);
         } catch (error) {
           console.error(`Failed to add image to PDF: ${error.message}`);
         }
@@ -140,8 +153,7 @@ class DrakeScansChapterScrapper {
 async function main() {
   try {
     const baseUrl =
-      process.env.BASE_URL ||
-      "https://drakecomic.org/maxed-strength-necromancer-2";
+      process.env.BASE_URL || "https://drakecomic.org/sss-grade-saint-knight";
     const startChapter = parseInt(process.env.START_CHAPTER) || 1;
     const endChapter = parseInt(process.env.END_CHAPTER) || 2;
 
