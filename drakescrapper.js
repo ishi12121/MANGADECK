@@ -100,7 +100,7 @@ class DrakeScansChapterScrapper {
   }
   async saveData() {
     await fs.writeFile(
-      `DRAKESCANS.json`,
+      `drakescans.json`,
       JSON.stringify(this.chapters, null, 2)
     );
     console.log("All chapter data saved to DRAKESCANS.json");
@@ -152,7 +152,7 @@ async function main() {
   try {
     const baseUrl =
       process.env.BASE_URL ||
-      "https://drakecomic.org/manga/master-this-villainous-disciple-is-not-the-holy-child";
+      "https://drakecomic.org/master-this-villainous-disciple-is-not-the-holy-child";
     const startChapter = parseInt(process.env.START_CHAPTER) || 1;
     const endChapter = parseInt(process.env.END_CHAPTER) || 10;
 
