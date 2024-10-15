@@ -10,7 +10,6 @@ class DrakeScansChapterScrapper {
     this.baseUrl = baseUrl;
     this.chapters = [];
   }
-
   async fetchWithRetry(url, maxRetries = 3) {
     for (let i = 0; i < maxRetries; i++) {
       try {
