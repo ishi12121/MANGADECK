@@ -1,4 +1,4 @@
-# AsuraScans Chapter Scraper
+# WEBTOONS Chapter Scraper
 
 ## Description
 
