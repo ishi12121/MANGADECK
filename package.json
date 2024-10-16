@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "comicscrapper.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "asura": "node asurascrapper.js",
-    "drake":"node drakescrapper.js"
+    "dev": "node manga_scraper.js"
   },
   "keywords": [],
   "author": "",
